@@ -1,38 +1,53 @@
+//Styles, fonts and colors
 import './style.css';
-import Logo from './images/logo2.jpeg';
+import './fonts-and-colors.css';
 
-const tabNames = ["Home", "Menu", "About Us", "Contact Us"]
+//Header component
+import { Header } from './components/header.js';
 
-function docHeader() {
-    
-    const headerElement = document.createElement('header');
+import logoImage from './images/logo2.jpeg';
+const tabs = ["Home", "Menu", "About Us", "Contact Us"]
+const header = new Header(logoImage, tabs); //Instantiate a Header object
 
-    const logoContainer = document.createElement('div');
-    const myLogo = new Image();
-    myLogo.src = Logo;
-    myLogo.classList.add('logo');
+const headerComponent = header.createHeader();
 
-    logoContainer.classList.add('logo-container');
-    logoContainer.appendChild(myLogo);
-    // logoContainer.textContent="Logo";
+document.body.appendChild(headerComponent);
 
-    const menu = document.createElement('nav');
-    menu.classList.add('menu');
+//Page Content
+const content = document.createElement('div');
+content.classList.add('content');
+document.body.appendChild(content);
 
-    headerElement.appendChild(logoContainer);
-    for(let tabName of tabNames){
-        menu.appendChild(menuTab(tabName));
+//Footer component
+import { Footer } from './components/footer.js';
+
+const companyCopyright = '株式会社';
+const companySns = [
+    {
+        name: "facebook",
+        url: "https://www.facebook.com/goldenwingschicken/",
+        faClass: "fa-brands fa-square-facebook",
+    },
+    {
+        name: "twitter",
+        url: "https://twitter.com/goldenwingstogo",
+        faClass: "fa-brands fa-square-x-twitter",
+    },
+    {
+        name: "instagram",
+        url: "https://www.instagram.com/golden_wings_chicken/?hl=ja",
+        faClass: "fa-brands fa-square-instagram",
     }
-    headerElement.appendChild(menu);
-
-    return headerElement;
+]
+const DesignCredits = {
+    text: "Web design by",
+    url: "https://github.com/Durounseki",
+    faClass: "fa-brands fa-square-github",
+    creditor: "Durounseki",
 }
 
-function menuTab(tabName){
-    const tab = document.createElement('button');
-    tab.classList.add('menu-tab');
-    tab.textContent=tabName;
-    return tab;
-}
+const footer = new Footer(companyCopyright,companySns,DesignCredits);//Instantiate a Footer object
 
-document.body.appendChild(docHeader());
+const footerComponent = footer.createFooter();
+
+document.body.appendChild(footerComponent);

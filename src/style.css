@@ -1,16 +1,18 @@
 body{
     margin: 0;
+    font-family: "Noto Sans JP", sans-serif;
 }
 
+/* Header */
 header{
     display: flex;
-    background-color: #8a2056;
-    padding: 12px;
+    background-color: var(--main-color);
+    padding: 12px 0;
+    padding-left: 12px;
+    padding-right: 30px;
 }
 
 .logo-container{
-    /* margin: 12px 0;
-    margin-left: 12px; */
     margin-right: auto;
 }
 
@@ -25,8 +27,49 @@ header{
 
 .menu-tab{
     border: none;
-    background-color: #8a2056;
-    color: #f5ebf1;
-    font-family: "Noto Sans", sans-serif;
+    background-color: var(--main-color);
+    color: var(--text-light);
     font-size: 16px;
+}
+
+/* Temporary content */
+.content{
+    height: 200px;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+}
+
+.sns-container{
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+}
+
+.sns{
+    color: var(--main-color);
+}
+
+.credits-container{
+    display: flex;
+    gap: 10px;
+}
+
+.credits{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    i{
+        font-size: 24px;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
 }

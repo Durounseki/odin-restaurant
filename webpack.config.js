@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        index: './src/index.js',
+    },
     devtool: 'source-map',
     devServer: {
         static: './dist',
@@ -11,7 +13,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            title: 'Odin Restaurant',
+            title: 'Golden Wings',
         }),
     ],
     output: {
@@ -29,6 +31,13 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
         ],
+    },
+    externals: {
+        'google': 'google' //Use 'google' cloud services.
     },
 }
