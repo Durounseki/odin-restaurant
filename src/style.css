@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+}
+
+header{
+    display: flex;
+    background-color: #8a2056;
+    padding: 12px;
+}
+
+.logo-container{
+    /* margin: 12px 0;
+    margin-left: 12px; */
+    margin-right: auto;
+}
+
+.logo{
+    height: 100px;
+}
+
+.menu{
+    display: flex;
+    gap: 30px;
+}
+
+.menu-tab{
+    border: none;
+    background-color: #8a2056;
+    color: #f5ebf1;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 16px;
+}
