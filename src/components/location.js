@@ -1,3 +1,5 @@
+import { Logo } from './logo.js';
+
 function Location(details,logoSrc){
 
     this.details = details;
@@ -39,7 +41,11 @@ function Location(details,logoSrc){
         homePage.textContent = "Website: ";
         homePage.appendChild(homePageUrl);
 
-        detailsContainer.appendChild(this.createLogo(this.logoSrc));
+        //Create logo component
+        const logo = new Logo(this.logoSrc);
+        const logoComponent = logo.createLogo();
+
+        detailsContainer.appendChild(logoComponent);
         detailsContainer.appendChild(address);
         detailsContainer.appendChild(phone);
         detailsContainer.appendChild(homePage);

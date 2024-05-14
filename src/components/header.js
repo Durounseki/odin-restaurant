@@ -1,3 +1,5 @@
+import { Logo } from './logo.js';
+
 function Header(logoSrc, tabNames) {
     
     this.logoSrc = logoSrc;
@@ -7,16 +9,11 @@ function Header(logoSrc, tabNames) {
         
         const headerElement = document.createElement('header');
 
-        //Create logo container and image element
-        const logoContainer = document.createElement('div');
-        logoContainer.classList.add('logo-container');
+        //Create logo component
+        const logo = new Logo(this.logoSrc);
+        const logoComponent = logo.createLogo();
 
-        const myLogo = new Image();
-        myLogo.src = this.logoSrc;
-        myLogo.classList.add('logo');
-
-        logoContainer.appendChild(myLogo);
-        headerElement.appendChild(logoContainer);
+        headerElement.appendChild(logoComponent);
 
         //Create navigation menu
         const menu = document.createElement('nav');
