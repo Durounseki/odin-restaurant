@@ -1,15 +1,16 @@
 body{
     margin: 0;
     font-family: "Noto Sans JP", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header */
 header{
     display: flex;
     background-color: var(--main-color);
-    padding: 12px 0;
-    padding-left: 12px;
-    padding-right: 30px;
+    padding: 12px 30px;
 }
 
 .logo-container{
@@ -32,9 +33,31 @@ header{
     font-size: 16px;
 }
 
-/* Temporary content */
+/* Content */
 .content{
-    height: 200px;
+    flex: 1;
+}
+
+
+/* Location */
+
+.location-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 30px;
+    background-color: var(--main-color);
+}
+
+.address-container{
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.g-map{
+    border: 0;
+    min-width: 300px;
+    height: 300px;
 }
 
 footer{
