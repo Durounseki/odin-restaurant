@@ -1,10 +1,10 @@
 :root{
     --text-dark: #3e4555;
     --text-light: #f5ebf1;
-    --bg-dark: #664444;
-    --bg-catch: #DB9281;
     --main-color: #8a2056;
     --bg-light: #F5F5F0;
+    --bg-mid: #a86f8c;
+    --bg-accent: #7399B0;
 }
 
 

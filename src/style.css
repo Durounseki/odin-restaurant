@@ -51,7 +51,29 @@ header{
 }
 
 .get-in-touch{
-    margin-bottom: 0;
+    margin: 0 auto;
+    border-bottom: solid 1px var(--text-dark);
+}
+
+.contact-wrapper .phone{
+    position: relative;
+    background-color: none;
+    z-index: 1;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-wrapper .phone::after{
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: var(--bg-accent);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 25%;
+    z-index: -1;
 }
 
 .contact-container{

@@ -53,7 +53,7 @@ function Contact(
 
         const invitation = document.createElement('p');
         invitation.classList.add('invitation');
-        invitation.textContent = this.invitationText;
+        invitation.textContent = "\u203B " + this.invitationText;
 
         contact.appendChild(invitation);
 
@@ -66,7 +66,7 @@ function Contact(
     this.createBusinessHours = function(hours){
         const businessHour = document.createElement('div');
         businessHour.classList.add('business-hour');
-        businessHour.textContent = hours;
+        businessHour.textContent = "\u2666 " + hours;
 
         return businessHour;
     }
