@@ -48,10 +48,11 @@ header{
     background-color: var(--main-color);
 }
 
-.address-container{
+.details-container{
     color: var(--text-light);
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .g-map{
