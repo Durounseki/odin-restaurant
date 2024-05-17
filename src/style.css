@@ -59,7 +59,7 @@ header{
     align-items: center;
 }
 
-.company-name{
+.banner-title{
     margin: 0 30px;
     color: var(--text-light);
     font-size: 48px;
@@ -67,7 +67,7 @@ header{
     font-family: 'Baskervville';
 }
 
-.slogan{
+.banner-subtitle{
     margin: 0 30px;
     color: var(--text-light);
     text-align: center;

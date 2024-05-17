@@ -1,6 +1,7 @@
-function Banner(company){
+function Banner(title, subtitle){
     
-    this.company = company;
+    this.title = title;
+    this.subtitle = subtitle;
 
     this.createBanner = function(){
         
@@ -8,14 +9,17 @@ function Banner(company){
         banner.classList.add('banner'); //Add an image to the background
         const bannerContent = document.createElement('div');
         bannerContent.classList.add('banner-content'); // The banner content has a translucid background to make the text on top of the background easier to read
-        const companyName = document.createElement('h1');
-        companyName.classList.add('company-name');
-        companyName.textContent = this.company.name;
-        const slogan = document.createElement('p');
-        slogan.classList.add('slogan');
-        slogan.textContent = this.company.slogan;
-        bannerContent.appendChild(companyName);
-        bannerContent.appendChild(slogan);
+        const title = document.createElement('h1');
+        title.classList.add('banner-title');
+        title.textContent = this.title;
+        bannerContent.appendChild(title);
+        if(this.subtitle){
+            const subtitle = document.createElement('p');
+            subtitle.classList.add('banner-subtitle');
+            subtitle.textContent = this.subtitle;
+            bannerContent.appendChild(subtitle);
+        }
+        
         banner.append(bannerContent);
 
         return banner;
