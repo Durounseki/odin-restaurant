@@ -1,8 +1,8 @@
 import { Logo } from './logo.js';
 
-function Location(details,logoSrc){
+function Location(company,logoSrc){
 
-    this.details = details;
+    this.company = company;
     this.logoSrc = logoSrc;
 
     this.createLocation = function(){
@@ -12,8 +12,8 @@ function Location(details,logoSrc){
         locationContainer.classList.add('location-container');
 
         //Append elements
-        locationContainer.appendChild(this.createDetails(this.details));
-        locationContainer.appendChild(this.createMap(this.details.map));
+        locationContainer.appendChild(this.createDetails(this.company));
+        locationContainer.appendChild(this.createMap(this.company.map));
 
         return locationContainer;
     }

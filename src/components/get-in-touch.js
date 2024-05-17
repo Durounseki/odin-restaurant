@@ -1,12 +1,12 @@
 function Contact(
-    details, 
+    company, 
     titleText = "GET IN TOUCH", 
     mailIconFaClass = "fa-regular fa-envelope", 
     contactText = "Contact Form", 
     invitationText = "Please contact us by phone or via this form."
 ){
 
-    this.details = details;
+    this.company = company;
     this.titleText = titleText;
     this.mailIconFaClass = mailIconFaClass;
     this.contactText = contactText;
@@ -25,13 +25,13 @@ function Contact(
 
         const phone = document.createElement('h1');
         phone.classList.add('phone');
-        phone.textContent = details.phone;
+        phone.textContent = company.phone;
 
         contactContainer.appendChild(phone);
 
         const businessHours = document.createElement('div');
         businessHours.classList.add('business-hours');
-        for(let hours of this.details.businessHours){
+        for(let hours of this.company.businessHours){
             businessHours.appendChild(this.createBusinessHours(hours));
         }
 
