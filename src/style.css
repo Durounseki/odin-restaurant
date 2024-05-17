@@ -41,7 +41,7 @@ header{
 }
 
 /*Concept*/
-.concept-container{
+.section-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +53,8 @@ header{
     background-color: white;
 }
 
-.concept-title{
+.section-title{
+    margin: 0 auto;
     border-bottom: solid 1px var(--text-dark);
 }
 
@@ -80,6 +81,48 @@ header{
     font-size: 20px;
 }
 
+/* Sampler Menu */
+
+.sampler{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.section-container .sampler::after{
+    content: '';
+    display: block;
+    margin: auto;
+    height: 150px;
+    background-color: var(--bg-accent);
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    z-index: 0;
+    border-radius: 30px;
+}
+
+.sample-container{
+    padding: 15px;
+    margin: 15px;
+    z-index: 1;
+}
+
+.sample-picture-container{
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px var(--dark-shadow);
+    max-width: 200px;
+    img{
+        width: 100%;
+    }
+}
+
+.menu-sample{
+    font-size: 20px;
+    font-weight: bold;
+}
 
 /* Contact details */
 
@@ -95,12 +138,7 @@ header{
     gap: 30px;
 }
 
-.get-in-touch{
-    margin: 0 auto;
-    border-bottom: solid 1px var(--text-dark);
-}
-
-.contact-container .phone{
+.section-container .phone{
     position: relative;
     background-color: none;
     z-index: 1;
@@ -108,7 +146,7 @@ header{
     margin: 0 auto;
 }
 
-.contact-container .phone::after{
+.section-container .phone::after{
     content: '';
     display: block;
     height: 5px;
@@ -238,7 +276,7 @@ a{
         margin-bottom: 30px;
     }
 
-    .concept-container, .contact-container{
+    .section-container{
         padding: 30px;
         margin: 30px;
     }

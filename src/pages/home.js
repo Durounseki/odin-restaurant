@@ -1,6 +1,12 @@
+import { Sampler } from '../components/sampler.js';
 import { Contact } from '../components/get-in-touch.js';
 import { Location } from '../components/location.js';
 import logoImage from '../images/logo2.jpeg';
+import wingsPicture from '../images/classic-wings.jpeg';
+import fingersPicture from '../images/classic-fingers.jpeg';
+import sandwichPicture from '../images/classic-sandwich2.jpeg';
+import potatoesPicture from '../images/potatoes3.jpeg';
+
 
 function Home(){
 
@@ -10,9 +16,9 @@ function Home(){
     //Concept
     const conceptContainer = document.createElement('div');
     
-    conceptContainer.classList.add('concept-container');
+    conceptContainer.classList.add('section-container');
     const conceptTitle = document.createElement('h2');
-    conceptTitle.classList.add('concept-title');
+    conceptTitle.classList.add('section-title');
     conceptTitle.textContent = "CONCEPT";
     conceptContainer.appendChild(conceptTitle);
 
@@ -44,8 +50,33 @@ function Home(){
 
     homeContent.appendChild(conceptContainer);
 
-    //Menu
+    //Sampler Menu
+    //Samples
+    const menuSamples = [
+        {
+            name: "Wings",
+            picture: wingsPicture
+        },
+        {
+            name: "Fingers",
+            picture: fingersPicture
+        },
+        {
+            name: "Sandwich",
+            picture: sandwichPicture
+        },
+        {
+            name: "Potatoes",
+            picture: potatoesPicture
+        }
+    ];
 
+    const sampler = new Sampler(menuSamples);
+    const samplerComponent = sampler.createSampler();
+
+    homeContent.appendChild(samplerComponent);
+
+    //Contact Section
 
     //Contact details
     const contactDetails = {
@@ -60,14 +91,9 @@ function Home(){
         map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.1481999974667!2d127.73214348633479!3d26.38639930249866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e511fa1682df3f%3A0x51d44e7bb1ad26f0!2sGolden%20Wings%20Chicken!5e0!3m2!1sen!2sjp!4v1715597303678!5m2!1sen!2sjp",
     }
 
-    //Contact Section
-
-    // const contactWrapper =  document.createElement('div');
-    // contactWrapper.classList.add('contact-wrapper');
     const contact = new Contact(contactDetails);
     const contactComponent = contact.createContact();
 
-    // contactWrapper.appendChild(contactComponent);
     homeContent.appendChild(contactComponent);
 
     //Location Section

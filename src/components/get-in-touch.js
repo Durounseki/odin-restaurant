@@ -1,6 +1,6 @@
 function Contact(
     details, 
-    titleText = "Get in Touch", 
+    titleText = "GET IN TOUCH", 
     mailIconFaClass = "fa-regular fa-envelope", 
     contactText = "Contact Form", 
     invitationText = "Please contact us by phone or via this form."
@@ -15,10 +15,10 @@ function Contact(
     this.createContact = function(){
 
         const contactContainer = document.createElement('div');
-        contactContainer.classList.add('contact-container');
+        contactContainer.classList.add('section-container');
 
         const title = document.createElement('h2');
-        title.classList.add('get-in-touch');
+        title.classList.add('section-title');
         title.textContent = this.titleText;
 
         contactContainer.appendChild(title);
