@@ -7,6 +7,46 @@ function Home(){
     const homeContent = document.createElement('div');
     homeContent.classList.add('page-content');
 
+    //Concept
+    const conceptContainer = document.createElement('div');
+    
+    conceptContainer.classList.add('concept-container');
+    const conceptTitle = document.createElement('h2');
+    conceptTitle.classList.add('concept-title');
+    conceptTitle.textContent = "CONCEPT";
+    conceptContainer.appendChild(conceptTitle);
+
+    const conceptContent = document.createElement('div');
+    conceptContent.classList.add('concept-content');
+    const concept = document.createElement('p');
+    concept.classList.add('concept');
+    concept.textContent = "Crafted with a unique American-inspired recipe";
+    conceptContent.appendChild(concept);
+
+    const conceptValues = document.createElement('ul');
+    conceptValues.classList.add('concept-values');
+    const concept1 = document.createElement('li');
+    const concept2 = document.createElement('li');
+    const concept3 = document.createElement('li');
+    concept1.textContent = "We only use the finest locally-sourced chicken from Okinawa, Kyushu and Shikoku.";
+    concept2.textContent = "Enjoy a delicious meal with 50% less fat thanks to our unique cooking method.";
+    concept3.textContent = "We use a healthier rice bran oil.";
+    conceptValues.appendChild(concept1);
+    conceptValues.appendChild(concept2);
+    conceptValues.appendChild(concept3);
+    conceptContent.appendChild(conceptValues);
+    conceptContainer.appendChild(conceptContent);
+
+    const viewMore = document.createElement('button');
+    viewMore.classList.add('view-more');
+    viewMore.textContent="View More";
+    conceptContainer.appendChild(viewMore);
+
+    homeContent.appendChild(conceptContainer);
+
+    //Menu
+
+
     //Contact details
     const contactDetails = {
         address: "2260-2 Sobe, Yomitan Village, Nakagami District, Okinawa Prefecture",
@@ -22,13 +62,13 @@ function Home(){
 
     //Contact Section
 
-    const contactWrapper =  document.createElement('div');
-    contactWrapper.classList.add('contact-wrapper');
+    // const contactWrapper =  document.createElement('div');
+    // contactWrapper.classList.add('contact-wrapper');
     const contact = new Contact(contactDetails);
     const contactComponent = contact.createContact();
 
-    contactWrapper.appendChild(contactComponent);
-    homeContent.appendChild(contactWrapper);
+    // contactWrapper.appendChild(contactComponent);
+    homeContent.appendChild(contactComponent);
 
     //Location Section
     const location = new Location(contactDetails,logoImage);  //Instantiate Location object

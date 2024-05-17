@@ -11,7 +11,7 @@ body{
 header{
     display: flex;
     background-color: var(--main-color);
-    padding: 12px 30px;
+    padding: 15px 60px;
 }
 
 .logo-container{
@@ -37,17 +37,62 @@ header{
 /* Content */
 .content{
     flex: 1;
+    background-color: var(--bg-light);
 }
+
+/*Concept*/
+.concept-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px;
+    margin: 60px;
+    gap: 30px;
+    text-align: center;
+    background-color: white;
+}
+
+.concept-title{
+    border-bottom: solid 1px var(--text-dark);
+}
+
+.concept-values{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    gap: 10px;
+}
+
+.concept{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.view-more{
+    border: none;
+    background-color: var(--main-color);
+    color: var(--text-light);
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
 
 /* Contact details */
 
-.contact-wrapper{
+.contact-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color: var(--bg-light);
+    margin: 60px;
     padding: 60px;
     text-align: center;
+    background-color: white;
+    gap: 30px;
 }
 
 .get-in-touch{
@@ -55,16 +100,15 @@ header{
     border-bottom: solid 1px var(--text-dark);
 }
 
-.contact-wrapper .phone{
+.contact-container .phone{
     position: relative;
     background-color: none;
     z-index: 1;
     padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
-.contact-wrapper .phone::after{
+.contact-container .phone::after{
     content: '';
     display: block;
     height: 5px;
@@ -74,16 +118,6 @@ header{
     left: 0;
     bottom: 25%;
     z-index: -1;
-}
-
-.contact-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding: 60px;
-    background-color: white;
-    gap: 30px;
 }
 
 .contact{
@@ -96,6 +130,7 @@ header{
 .contact-button{
     display: flex;
     gap: 10px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
     border: solid 1px var(--text-dark);
@@ -109,7 +144,8 @@ header{
 .business-hours{
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    column-gap: 30px;
+    row-gap: 10px;
     justify-content: space-around;
 }
 
@@ -124,7 +160,7 @@ header{
 .location-container{
     display: flex;
     justify-content: space-between;
-    padding: 12px 30px;
+    padding: 30px 60px;
     background-color: var(--main-color);
 }
 
@@ -141,9 +177,11 @@ header{
 
 .g-map{
     border: 0;
-    min-width: 300px;
+    min-width:300px;
     height: 300px;
 }
+
+/* Footer */
 
 footer{
     display: flex;
@@ -180,4 +218,44 @@ footer{
 a{
     text-decoration: none;
     color: inherit;
+}
+
+@media (max-width: 600px){
+
+    header{
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .menu{
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .logo-container{
+        margin-left: auto;
+        margin-bottom: 30px;
+    }
+
+    .concept-container, .contact-container{
+        padding: 30px;
+        margin: 30px;
+    }
+    
+    .location-container{
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .details-container{
+        align-self: center;
+    }
+
+    .map-container{
+        margin: 0 auto;
+    }
+    footer{
+        gap: 12px;
+    }
 }
