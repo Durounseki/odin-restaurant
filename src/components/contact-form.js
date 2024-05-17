@@ -93,7 +93,7 @@ function ContactForm(
                     label: 'Inquiry',
                     id: 'inquiry',
                     name: 'inquiry',
-                    placeholder: 'Please tell us how can we help you',
+                    placeholder: 'Please tell us how can we help',
                     rows: 5,
                     required: true,
                 }
@@ -118,7 +118,14 @@ function ContactForm(
             form.appendChild(this.createFormField(field));
         }
 
+        const submitButton = document.createElement('button');
+        submitButton.classList.add('submit-button');
+        submitButton.type = 'submit';
+        submitButton.id = 'submit';
+        submitButton.textContent = 'Send';
+
         formContainer.appendChild(form);
+        formContainer.appendChild(submitButton);
 
         return formContainer;
 

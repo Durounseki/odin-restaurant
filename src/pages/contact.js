@@ -10,7 +10,7 @@ function Contact(){
     const bannerComponent = banner.createBanner();
     contactContent.append(bannerComponent);
 
-    const getInTouch = document.createElement('h2');
+    const getInTouch = document.createElement('h1');
     getInTouch.classList.add('get-in-touch');
     getInTouch.textContent = 'Got questions or feedback? Let us know!';
 
