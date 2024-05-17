@@ -1,3 +1,4 @@
+import { Banner } from '../components/banner.js';
 import { Sampler } from '../components/sampler.js';
 import { Contact } from '../components/get-in-touch.js';
 import { Location } from '../components/location.js';
@@ -14,20 +15,15 @@ function Home(){
     homeContent.classList.add('page-content');
 
     //Banner
-    const banner = document.createElement('div');
-    banner.classList.add('banner');
-    const bannerContent = document.createElement('div');
-    bannerContent.classList.add('banner-content');
-    const restaurantName = document.createElement('h1');
-    restaurantName.classList.add('restaurant-name');
-    restaurantName.textContent = 'GOLDEN WINGS CHICKEN'
-    const slogan = document.createElement('p');
-    slogan.classList.add('slogan');
-    slogan.textContent = 'Finger-lickin\' wings. Experience a taste of the world in Okinawa.';
-    bannerContent.appendChild(restaurantName);
-    bannerContent.appendChild(slogan);
-    banner.append(bannerContent)
-    homeContent.append(banner);
+
+    const restaurant = {
+        name: 'GOLDEN WINGS CHICKEN',
+        slogan: 'Finger-lickin\' wings. Experience a taste of the world in Okinawa'
+    }
+    
+    const banner = new Banner(restaurant);
+    const bannerComponent = banner.createBanner();
+    homeContent.append(bannerComponent);
 
     //Concept
     const conceptContainer = document.createElement('div');
@@ -115,6 +111,7 @@ function Home(){
     //Location Section
     const location = new Location(contactDetails,logoImage);  //Instantiate Location object
     const locationComponent = location.createLocation();
+    locationComponent.classList.add('location');
 
     homeContent.appendChild(locationComponent)
 
