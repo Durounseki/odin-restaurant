@@ -13,6 +13,22 @@ function Home(){
     const homeContent = document.createElement('div');
     homeContent.classList.add('page-content');
 
+    //Banner
+    const banner = document.createElement('div');
+    banner.classList.add('banner');
+    const bannerContent = document.createElement('div');
+    bannerContent.classList.add('banner-content');
+    const restaurantName = document.createElement('h1');
+    restaurantName.classList.add('restaurant-name');
+    restaurantName.textContent = 'GOLDEN WINGS CHICKEN'
+    const slogan = document.createElement('p');
+    slogan.classList.add('slogan');
+    slogan.textContent = 'Finger-lickin\' wings. Experience a taste of the world in Okinawa.';
+    bannerContent.appendChild(restaurantName);
+    bannerContent.appendChild(slogan);
+    banner.append(bannerContent)
+    homeContent.append(banner);
+
     //Concept
     const conceptContainer = document.createElement('div');
     

@@ -10,7 +10,7 @@ function Header(logoSrc, tabNames) {
         const headerElement = document.createElement('header');
 
         //Create logo component
-        const logo = new Logo(this.logoSrc);
+        const logo = new Logo(this.logoSrc,'logo','Golden Wings');
         const logoComponent = logo.createLogo();
 
         headerElement.appendChild(logoComponent);

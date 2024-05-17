@@ -40,6 +40,38 @@ header{
     background-color: var(--bg-light);
 }
 
+/* Banner */
+.banner{
+    height: 40vh;
+    background-image: url('./images/banner3.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.banner-content{
+    background-color: #00000060;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.restaurant-name{
+    margin: 0;
+    color: var(--text-light);
+    font-size: 48px;
+    text-align: center;
+    font-family: 'Baskervville';
+}
+
+.slogan{
+    margin: 0;
+    color: var(--text-light);
+}
+
 /*Concept*/
 .section-container{
     display: flex;
@@ -47,7 +79,7 @@ header{
     align-items: center;
     flex-direction: column;
     padding: 60px;
-    margin: 60px;
+    margin: 120px 60px;
     gap: 30px;
     text-align: center;
     background-color: white;
@@ -236,7 +268,7 @@ footer{
 }
 
 .sns{
-    color: var(--main-color);
+    color: var(--text-dark);
 }
 
 .credits-container{
