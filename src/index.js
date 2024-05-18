@@ -17,9 +17,14 @@ document.body.appendChild(headerComponent);
 const content = document.createElement('div');
 content.classList.add('content');
 
-import { Home } from './pages/home.js';
+// import { Home } from './pages/home.js';
 
-content.appendChild(Home());
+// content.appendChild(Home());
+// document.body.appendChild(content);
+
+import { Menu } from './pages/menu.js';
+
+content.appendChild(Menu());
 document.body.appendChild(content);
 
 // import { Contact } from './pages/contact.js';

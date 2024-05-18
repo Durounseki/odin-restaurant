@@ -22,12 +22,12 @@ header{
     height: 100px;
 }
 
-.menu{
+.nav-menu{
     display: flex;
     gap: 30px;
 }
 
-.menu-tab{
+.nav-tab{
     border: none;
     background-color: var(--main-color);
     color: var(--text-light);
@@ -305,6 +305,67 @@ header{
         margin: 0 auto;
     }
 }
+
+/**             **/
+/*   Menu page   */
+/**            **/
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-section{
+    display: flex;
+    padding: 60px;
+    margin: 120px 60px;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+}
+
+.menu-description{
+    text-align: center;
+}
+
+.menu-section-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 60px;
+}
+
+.slideshow-container{
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px var(--dark-shadow);
+    max-width: 200px;
+    img{
+        width: 100%;
+    }
+}
+
+.menu-items{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 20px;
+}
+
+.menu-item{
+    img{
+        width: 40px;
+    }
+}
+
+
 
 /**             **/
 /* Contact page */

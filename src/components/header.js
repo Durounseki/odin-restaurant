@@ -17,7 +17,7 @@ function Header(logoSrc, tabNames) {
 
         //Create navigation menu
         const menu = document.createElement('nav');
-        menu.classList.add('menu');
+        menu.classList.add('nav-menu');
         
         for(let tabName of this.tabNames){
             menu.appendChild(this.createMenuTab(tabName));
@@ -34,7 +34,7 @@ function Header(logoSrc, tabNames) {
         
         const tab = document.createElement('button');
         
-        tab.classList.add('menu-tab');
+        tab.classList.add('nav-tab');
         tab.textContent=tabName;
         
         return tab;

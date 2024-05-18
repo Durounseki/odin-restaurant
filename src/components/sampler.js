@@ -56,4 +56,4 @@ function Sampler(samples, title = "MENU"){
 
 }
 
-export { Sampler };
+export { Sampler, Sample };
