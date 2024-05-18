@@ -17,15 +17,15 @@ document.body.appendChild(headerComponent);
 const content = document.createElement('div');
 content.classList.add('content');
 
-// import { Home } from './pages/home.js';
+import { Home } from './pages/home.js';
 
-// content.appendChild(Home());
-// document.body.appendChild(content);
-
-import { Contact } from './pages/contact.js';
-
-content.appendChild(Contact());
+content.appendChild(Home());
 document.body.appendChild(content);
+
+// import { Contact } from './pages/contact.js';
+
+// content.appendChild(Contact());
+// document.body.appendChild(content);
 
 //Footer component
 import { Footer } from './components/footer.js';
