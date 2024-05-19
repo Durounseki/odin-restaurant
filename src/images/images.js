@@ -75,10 +75,10 @@ const fingersSlides = [
         name: "Classic Fingers",
         src: classicFingers
     },
-    {
-        name: "Dip your finger",
-        src: fingersDips
-    },
+    // {
+    //     name: "Dip your finger",
+    //     src: fingersDips
+    // },
     {
         name:"Take Away",
         src:classicFingers2

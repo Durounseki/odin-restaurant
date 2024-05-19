@@ -60,13 +60,29 @@ function Menu(){
     
     let currentWingsSlide = 0;
     let currentFingersSlide = 0;
+    let wingsIntervalId = null;
+    let fingersIntervalId = null;
 
-    setInterval(() => {
-        currentWingsSlide = (currentWingsSlide + 1) % slidesWings.length;
-        showSlide(slidesWings, currentWingsSlide);
-        currentFingersSlide = (currentFingersSlide + 1) % slidesFingers.length;
-        showSlide(slidesFingers, currentFingersSlide);
-    }, 5000);
+    showSlide(slidesWings,currentWingsSlide);
+    wingsIntervalId = startCarousel(slidesWings,currentWingsSlide);
+    
+    showSlide(slidesFingers,currentFingersSlide);
+    fingersIntervalId = startCarousel(slidesFingers,currentFingersSlide);
+
+    const wingsCarousel = menuContent.querySelector('#wings-section .slide-container');
+    wingsCarousel.addEventListener('mouseenter',() => {
+        stopCarousel(wingsIntervalId);
+    });
+    wingsCarousel.addEventListener('mouseleave',() => {
+        wingsIntervalId = startCarousel(slidesWings,currentWingsSlide);
+    });
+    const fingersCarousel = menuContent.querySelector('#fingers-section .slide-container');
+    fingersCarousel.addEventListener('mouseenter',() => {
+        stopCarousel(fingersIntervalId);
+    });
+    fingersCarousel.addEventListener('mouseleave',() => {
+        fingersIntervalId = startCarousel(slidesFingers,currentFingersSlide)
+    });
 
     return menuContent;
 
@@ -80,6 +96,18 @@ function showSlide(slides, index){
         slides[index].style.opacity = "1";
     }, 1000);
 
+}
+
+function startCarousel(slides,index){
+    const intervalId = setInterval(() => {
+        index = (index + 1) % slides.length;
+        showSlide(slides, index);
+    }, 3000);
+    return intervalId;
+}
+
+function stopCarousel(intervalId){
+    clearInterval(intervalId);
 }
 
 export { Menu };
