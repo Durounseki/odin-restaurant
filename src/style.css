@@ -414,7 +414,18 @@ header{
 }
 
 #top-choice{
-    font-size: 7px;
+    font-size: 9px;
+    color: var(--main-color);
+    top: -2px;
+}
+
+.icons-description{
+    font-size: smaller;
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    grid-column: 1 / 3;
+
 }
 
 

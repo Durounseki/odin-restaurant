@@ -1,6 +1,6 @@
 
 import { Banner } from '../components/banner.js';
-import { wingSlides, wingsItems, fingersSlides, potatoesSlides, sandwichSlides } from "../images/images.js";
+import { wingSlides, wingsItems, fingersSlides, potatoesSlides, sandwichSlides, Icons } from "../images/images.js";
 
 
 function Menu(){
@@ -103,14 +103,44 @@ function Menu(){
             Icon.style.verticalAlign = "top";
             extraInfo.append(Icon);
         }
+
         itemName.append(extraInfo);
         menuItem.appendChild(itemImage);
         menuItem.appendChild(itemName);
         menuItems.appendChild(menuItem);
     }
 
+    const extraInfoDescription = document.createElement('div');
+    extraInfoDescription.classList.add('icons-description');
+
+    for(let icon of Icons){
+        
+        const iconDescription = document.createElement('p');
+        iconDescription.textContent = icon.description;
+
+        let Icon;
+        if(icon.name === "Top Choice"){
+            Icon = document.createElement('div');
+            Icon.classList.add('fa-stack');
+            const star = document.createElement('i');
+            star.classList.add(...icon.star.faClass.split(' '));
+            const one = document.createElement('i');
+            one.classList.add(...icon.one.faClass.split(' '));
+            Icon.id = "top-choice";
+            Icon.appendChild(star);
+            Icon.appendChild(one);
+        }else{
+            Icon = document.createElement('i');
+            Icon.classList.add(...icon.faClass.split(' '));
+        }
+
+        iconDescription.prepend(Icon);
+        extraInfoDescription.appendChild(iconDescription);
+    }
+
     menuItemsContainer.appendChild(menuItems);
     menuSectionContent.appendChild(menuItemsContainer);
+    menuSectionContent.appendChild(extraInfoDescription);
     wingsMenu.appendChild(menuSectionContent);
     menuContent.appendChild(wingsMenu);
 

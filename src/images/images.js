@@ -36,18 +36,20 @@ import sweetChili from "./sweet-chili.png"
 import tandoori from "./tandoori.png"
 
 //Icons for extra information use font awesome
-const dry = {name:"dry", faClass: "fa-solid fa-cubes-stacked"};
-const wet = {name:"wet" , faClass: "fa-solid fa-droplet"};
-const spicy = {name:"spicy", faClass: "fa-solid fa-pepper-hot"};
+const dry = {name:"dry", faClass: "fa-solid fa-cubes-stacked", description: "Dry rub"};
+const wet = {name:"wet" , faClass: "fa-solid fa-droplet", description: "Sauce"};
+const spicy = {name:"spicy", faClass: "fa-solid fa-pepper-hot", description: "Spicy hot"};
 const topChoice = {
     name: "Top Choice",
     star: {name:"star", faClass: "fa-solid fa-star fa-stack-2x"}, 
     one: {name:"one", faClass: "fa-solid fa-1 fa-stack-1x fa-inverse"}
 }
 
+const Icons = [dry, wet, spicy];
+
 const wingsItems = [
     { name: "Jerk Garlic", src: jerkGarlic, icons: [dry]},
-    { name: "Lemon Pepper", src: lemonPepper, icons: [dry,topChoice] },
+    { name: "Lemon Pepper", src: lemonPepper, icons: [topChoice, dry] },
     { name: "Cajun", src: cajun, icons: [dry,spicy] },
     { name: "Buffalo", src: buffalo, icons: [wet,spicy,spicy] },
     { name: "Sweet Chili", src: sweetChili, icons: [wet,spicy] },
@@ -83,4 +85,4 @@ import classicSandwich2 from "./classic-sandwich4.jpeg";
 
 const sandwichSlides = [classicSandwich,spicySandwich,classicSandwich2];
 
-export { wingSlides, wingsItems, fingersSlides, potatoesSlides, sandwichSlides };
+export { wingSlides, wingsItems, fingersSlides, potatoesSlides, sandwichSlides, Icons };
