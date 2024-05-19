@@ -35,22 +35,32 @@ import sweetBbq from "./sweet-bbq.png"
 import sweetChili from "./sweet-chili.png"
 import tandoori from "./tandoori.png"
 
+//Icons for extra information use font awesome
+const dry = {name:"dry", faClass: "fa-solid fa-cubes-stacked"};
+const wet = {name:"wet" , faClass: "fa-solid fa-droplet"};
+const spicy = {name:"spicy", faClass: "fa-solid fa-pepper-hot"};
+const topChoice = {
+    name: "Top Choice",
+    star: {name:"star", faClass: "fa-solid fa-star fa-stack-2x"}, 
+    one: {name:"one", faClass: "fa-solid fa-1 fa-stack-1x fa-inverse"}
+}
+
 const wingsItems = [
-    { name: "Jerk Garlic", src: jerkGarlic },
-    { name: "Lemon Pepper", src: lemonPepper },
-    { name: "Cajun", src: cajun },
-    { name: "Buffalo", src: buffalo },
-    { name: "Sweet Chili", src: sweetChili },
-    { name: "Normal", src: normal },
-    { name: "Tandoori", src: tandoori },
-    { name: "Salt & Pepper", src: saltNPepper },
-    { name: "Chili Sauce", src: chiliSauce },
-    { name: "Creamy Sesame", src: creamySesame },
-    { name: "Honey Mustard", src: honeyMustard },
-    { name: "Sweet BBQ", src: sweetBbq },
-    { name: "Mild BBQ", src: mildBbq },
-    { name: "Spicy BBQ", src: spicyBbq },
-    { name: "Cheese", src: cheese },
+    { name: "Jerk Garlic", src: jerkGarlic, icons: [dry]},
+    { name: "Lemon Pepper", src: lemonPepper, icons: [dry,topChoice] },
+    { name: "Cajun", src: cajun, icons: [dry,spicy] },
+    { name: "Buffalo", src: buffalo, icons: [wet,spicy,spicy] },
+    { name: "Sweet Chili", src: sweetChili, icons: [wet,spicy] },
+    { name: "Normal", src: normal, icons: [dry] },
+    { name: "Tandoori", src: tandoori, icons: [dry,spicy] },
+    { name: "Salt & Pepper", src: saltNPepper, icons: [dry] },
+    { name: "Chili Sauce", src: chiliSauce, icons: [wet,spicy] },
+    { name: "Creamy Sesame", src: creamySesame, icons: [wet] },
+    { name: "Honey Mustard", src: honeyMustard, icons: [wet] },
+    { name: "Sweet BBQ", src: sweetBbq, icons: [wet] },
+    { name: "Mild BBQ", src: mildBbq, icons: [wet,spicy] },
+    { name: "Spicy BBQ", src: spicyBbq, icons: [wet,spicy,spicy] },
+    { name: "Cheese", src: cheese, icons: [dry] },
 ]
 
 //Fingers images
