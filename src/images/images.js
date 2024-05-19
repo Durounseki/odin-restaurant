@@ -70,7 +70,47 @@ import classicFingers from "./fingers-classic.jpeg";
 import fingersDips from "./fingers-dips.jpeg";
 import classicFingers2 from "./fingers-classic2.jpeg";
 
-const fingersSlides = [classicFingers,fingersDips,classicFingers2];
+const fingersSlides = [
+    {
+        name: "Classic Fingers",
+        src: classicFingers
+    },
+    {
+        name: "Dip your finger",
+        src: fingersDips
+    },
+    {
+        name:"Take Away",
+        src:classicFingers2
+    }
+];
+
+import buffaloDip from "./buffalo-dip.png"
+import mildMustard from "./mild-mustard.png"
+import ranch from "./ranch.png"
+import chiliDip from "./chili-dip.png"
+import creamySesameDip from "./creamy-sesame-dip.png"
+import honeyMustardDip from "./honey-mustard-dip.png"
+import sweetChiliDip from "./sweet-chili-dip.png"
+import original from "./original.png"
+import mildBbqDip from "./mild-bbq-dip.png"
+import spicyBbqDip from "./spicy-bbq-dip.png"
+import sweetBbqDip from "./sweet-bbq-dip.png"
+
+const fingersItems = [
+    { name: "Mild Mustard", src: mildMustard, icons: []},
+    { name: "Ranch", src: ranch, icons: [] },
+    { name: "Buffalo", src: buffaloDip, icons: [spicy,spicy] },
+    { name: "Sweet Chili", src: sweetChiliDip, icons: [spicy] },
+    { name: "Original sauce (included)", src: original, icons: [] },
+    { name: "Chili", src: chiliDip, icons: [spicy,spicy] },
+    { name: "Creamy Sesame", src: creamySesameDip, icons: [] },
+    { name: "Honey Mustard", src: honeyMustardDip, icons: [] },
+    { name: "Sweet BBQ", src: sweetBbqDip, icons: [] },
+    { name: "Mild BBQ", src: mildBbqDip, icons: [spicy] },
+    { name: "Spicy BBQ", src: spicyBbqDip, icons: [spicy,spicy] },
+]
+
 
 //Potatoes images
 import classicPotatoes from "./potatoes2.jpeg";
@@ -85,4 +125,4 @@ import classicSandwich2 from "./classic-sandwich4.jpeg";
 
 const sandwichSlides = [classicSandwich,spicySandwich,classicSandwich2];
 
-export { wingSlides, wingsItems, fingersSlides, potatoesSlides, sandwichSlides, Icons };
+export { wingSlides, wingsItems, fingersSlides, fingersItems, potatoesSlides, sandwichSlides, Icons };

@@ -1,6 +1,7 @@
 
 import { Banner } from '../components/banner.js';
-import { wingSlides, wingsItems, fingersSlides, potatoesSlides, sandwichSlides, Icons } from "../images/images.js";
+import { wingSlides, wingsItems, fingersSlides, fingersItems, potatoesSlides, sandwichSlides, Icons } from "../images/images.js";
+import { MenuSection } from '../components/menu-section.js';
 
 
 function Menu(){
@@ -17,134 +18,67 @@ function Menu(){
 
     //Chicken wings
 
-    const wingsMenu = document.createElement('div');
-    wingsMenu.classList.add('menu-section');
+    const wingsSection = {
+        title: "CHICKEN WINGS",
+        punchline: "Juicy, crispy and irresistible!",
+        price: "5 Pc \u00A5 900 / 10 Pc \u00A5 1750",
+        flavoursTitle: "Choose your favorite",
+        remark: "\u203B Choose 1 flavor for every 5 wings",
+        slides: wingSlides,
+        items: wingsItems,
+        icons: Icons,
+    }
 
-    const wingsTitle = document.createElement('h2');
-    wingsTitle.classList.add('section-title');
-    wingsTitle.textContent = "Chicken Wings";
-    const wingsDescription = document.createElement('p');
-    wingsDescription.classList.add('menu-description');
-    wingsDescription.textContent = "Juicy, crispy and Irresistible";
-    wingsMenu.appendChild(wingsTitle);
-    wingsMenu.appendChild(wingsDescription);
+    const wingsMenu = new MenuSection(wingsSection);
+    const wingsMenuComponent = wingsMenu.createSection();
+    wingsMenuComponent.id = 'wings-section';
 
-    const menuSectionContent = document.createElement('div');
-    menuSectionContent.classList.add('menu-section-content');
+    //Chicken fingers
 
-    const priceContainer = document.createElement('div');
-    priceContainer.classList.add('price-container');
-    const price = document.createElement('h1');
-    price.textContent = "5 Pc \u00A5 900 / 10 Pc \u00A5 1750";
+    const fingersSection = {
+        title: "CHICKEN FINGERS",
+        punchline: "Boneless chicken fingers. Crispy outside, juicy inside!",
+        price: "5 Pc \u00A5 900 / 10 Pc \u00A5 1750",
+        flavoursTitle: "Choose your dip",
+        remark: "\u203B Extra \u00A5 70 each",
+        slides: fingersSlides,
+        items: fingersItems,
+        icons: Icons,
+    }
 
-    priceContainer.appendChild(price);
-    menuSectionContent.appendChild(priceContainer);
+    const fingersMenu = new MenuSection(fingersSection);
+    const fingersMenuComponent = fingersMenu.createSection();
+    fingersMenuComponent.id = 'fingers-section';
 
-    const menuItemsHeader = document.createElement('div');
-    menuItemsHeader.classList.add('menu-items-header');
-    const menuItemsTitle = document.createElement('h3');
-    menuItemsTitle.textContent = "Choose your favorite";
-    const menuItemsRemark = document.createElement('p');
-    menuItemsRemark.textContent = "Choose 1 flavor for every 5 wings";
-    menuItemsHeader.appendChild(menuItemsTitle);
-    menuItemsHeader.appendChild(menuItemsRemark);
+    menuContainer.appendChild(wingsMenuComponent);
+    menuContainer.appendChild(fingersMenuComponent);
+    menuContent.appendChild(menuContainer);
 
-    menuSectionContent.appendChild(menuItemsHeader);
-
-    const menuSlideShow = document.createElement('div');
-    menuSlideShow.classList.add('slideshow-container');
+    //Slideshow animation
+    const slidesWings = menuContent.querySelectorAll('#wings-section .slide');
+    const slidesFingers = menuContent.querySelectorAll('#fingers-section .slide');
     
-    const slideContainer = document.createElement('div');
-    slideContainer.classList.add('slide-container');
+    let currentWingsSlide = 0;
+    let currentFingersSlide = 0;
 
-    for(let slide of wingSlides){
-        
-        const Slide = document.createElement('img');
-        Slide.classList.add(...['slide','fade']);
-        Slide.src = slide.src;
-        Slide.alt = slide.name;
-
-        slideContainer.appendChild(Slide);
-        menuSlideShow.appendChild(slideContainer);
-    }
-
-    menuSectionContent.appendChild(menuSlideShow);
-
-    const menuItemsContainer = document.createElement('div');
-    menuItemsContainer.classList.add('menu-items-container');
-    
-    const menuItems = document.createElement('div');
-    menuItems.classList.add('menu-items');
-    for(let item of wingsItems){
-        const menuItem = document.createElement('div');
-        menuItem.classList.add('menu-item');
-        const itemImage = document.createElement('img');
-        itemImage.src = item.src;
-        const itemName = document.createElement('p');
-        itemName.textContent = item.name;
-        const extraInfo = document.createElement('span');
-        extraInfo.classList.add('extra-info');
-        for(let icon of item.icons){
-            let Icon;
-            if(icon.name === "Top Choice"){
-                Icon = document.createElement('div');
-                Icon.classList.add('fa-stack');
-                const star = document.createElement('i');
-                star.classList.add(...icon.star.faClass.split(' '));
-                const one = document.createElement('i');
-                one.classList.add(...icon.one.faClass.split(' '));
-                Icon.id = "top-choice";
-                Icon.appendChild(star);
-                Icon.appendChild(one);
-            }else{
-                Icon = document.createElement('i');
-                Icon.classList.add(...icon.faClass.split(' '));
-            }
-            Icon.style.verticalAlign = "top";
-            extraInfo.append(Icon);
-        }
-
-        itemName.append(extraInfo);
-        menuItem.appendChild(itemImage);
-        menuItem.appendChild(itemName);
-        menuItems.appendChild(menuItem);
-    }
-
-    const extraInfoDescription = document.createElement('div');
-    extraInfoDescription.classList.add('icons-description');
-
-    for(let icon of Icons){
-        
-        const iconDescription = document.createElement('p');
-        iconDescription.textContent = icon.description;
-
-        let Icon;
-        if(icon.name === "Top Choice"){
-            Icon = document.createElement('div');
-            Icon.classList.add('fa-stack');
-            const star = document.createElement('i');
-            star.classList.add(...icon.star.faClass.split(' '));
-            const one = document.createElement('i');
-            one.classList.add(...icon.one.faClass.split(' '));
-            Icon.id = "top-choice";
-            Icon.appendChild(star);
-            Icon.appendChild(one);
-        }else{
-            Icon = document.createElement('i');
-            Icon.classList.add(...icon.faClass.split(' '));
-        }
-
-        iconDescription.prepend(Icon);
-        extraInfoDescription.appendChild(iconDescription);
-    }
-
-    menuItemsContainer.appendChild(menuItems);
-    menuSectionContent.appendChild(menuItemsContainer);
-    menuSectionContent.appendChild(extraInfoDescription);
-    wingsMenu.appendChild(menuSectionContent);
-    menuContent.appendChild(wingsMenu);
+    setInterval(() => {
+        currentWingsSlide = (currentWingsSlide + 1) % slidesWings.length;
+        showSlide(slidesWings, currentWingsSlide);
+        currentFingersSlide = (currentFingersSlide + 1) % slidesFingers.length;
+        showSlide(slidesFingers, currentFingersSlide);
+    }, 5000);
 
     return menuContent;
+
+}
+
+function showSlide(slides, index){
+
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+    setTimeout(() => {
+        slides[index].style.opacity = "1";
+    }, 1000);
 
 }
 

@@ -324,14 +324,13 @@ header{
     flex-direction: column;
     background-color: white;
     justify-content: center;
-    width: max-content;
 }
 
-.menu-description{
+.punchline{
     text-align: center;
 }
 
-.price-container{
+.price{
     text-align: center;
 }
 
@@ -363,6 +362,8 @@ header{
 
 .slide-container{
     z-index: 1;
+    position: relative;
+    background-color: white;
 }
 
 .slideshow-container:after{
@@ -378,13 +379,23 @@ header{
     border-radius: 30px;
 }
 
-.slide.fade{
+.slide{
     display: none;
 }
 
-.slide:first-child{
+.slide.active{
     display: block;
+    animation-name: fade;
+    animation-duration: 3s;
 }
+
+@keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+/* .slide:first-child{
+    display: block;
+} */
 
 .menu-items{
     display: flex;
