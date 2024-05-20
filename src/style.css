@@ -91,14 +91,14 @@ header{
     min-height: 40vh;
     background-image: url('./images/banner3.jpeg');
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
 @media (max-width: 600px) {
     .banner{
-        background-size: auto 100%;
+        background-size: 200% auto;
     }
 }
 
