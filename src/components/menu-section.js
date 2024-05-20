@@ -1,4 +1,4 @@
-function MenuSection(section){
+function MenuSection1(section){
     
     this.section = section;
 
@@ -21,7 +21,9 @@ function MenuSection(section){
         sectionContent.classList.add('menu-section-content');
 
         const price = document.createElement('h1');
+        price.classList.add('price');
         price.textContent = this.section.price;
+        price.append(this.createIcon(this.section.icons[0]));
 
         sectionContent.appendChild(price);
 
@@ -130,4 +132,63 @@ function MenuSection(section){
     };
 }
 
-export { MenuSection };
+function MenuSection2(section){
+
+    this.section = section;
+
+    this.createSection = function(){
+        
+        const Section = document.createElement('div');
+        Section.classList.add('menu-section');
+
+        const sectionTitle = document.createElement('h2');
+        sectionTitle.classList.add('section-title');
+        sectionTitle.textContent = this.section.title;
+        
+        Section.appendChild(sectionTitle);
+
+        const sectionContent = document.createElement('div');
+        sectionContent.classList.add('menu-section-content');
+
+        const price1 = document.createElement('h1');
+        price1.textContent = this.section.price1;
+        const price2 = document.createElement('h1');
+        price2.textContent = this.section.price2;
+
+        sectionContent.appendChild(price1);
+        sectionContent.appendChild(price2);
+
+        sectionContent.appendChild(this.createSlideshow(this.section.slides1));
+        sectionContent.appendChild(this.createSlideshow(this.section.slides2));
+
+        Section.appendChild(sectionContent);
+
+        return Section;
+    }
+
+    this.createSlide =  function(slide){
+        const Slide = document.createElement('img');
+        Slide.classList.add('slide');
+        Slide.src = slide.src;
+        Slide.alt = slide.name;
+
+        return Slide;
+    }
+
+    this.createSlideshow =function(slides){
+        const slideShow = document.createElement('div');
+        slideShow.classList.add('slideshow-container');
+        const slideContainer = document.createElement('div');
+        slideContainer.classList.add('slide-container');
+
+        for(let slide of slides){
+            slideContainer.appendChild(this.createSlide(slide));
+            slideShow.appendChild(slideContainer);
+        }
+
+        return slideShow;
+    }
+
+}
+
+export { MenuSection1, MenuSection2 };

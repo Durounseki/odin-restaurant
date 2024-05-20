@@ -1,7 +1,7 @@
 
 import { Banner } from '../components/banner.js';
-import { wingSlides, wingsItems, fingersSlides, fingersItems, potatoesSlides, sandwichSlides, Icons } from "../images/images.js";
-import { MenuSection } from '../components/menu-section.js';
+import { wingSlides, wingsItems, fingersSlides, fingersItems, potatoesSlides, sandwichSlides, sandwichPotatoesItems, Icons } from "../images/images.js";
+import { MenuSection1, MenuSection2 } from '../components/menu-section.js';
 
 
 function Menu(){
@@ -29,7 +29,7 @@ function Menu(){
         icons: Icons,
     }
 
-    const wingsMenu = new MenuSection(wingsSection);
+    const wingsMenu = new MenuSection1(wingsSection);
     const wingsMenuComponent = wingsMenu.createSection();
     wingsMenuComponent.id = 'wings-section';
 
@@ -46,28 +46,53 @@ function Menu(){
         icons: Icons,
     }
 
-    const fingersMenu = new MenuSection(fingersSection);
+    const fingersMenu = new MenuSection1(fingersSection);
     const fingersMenuComponent = fingersMenu.createSection();
     fingersMenuComponent.id = 'fingers-section';
 
+    const sandwichPotatoesSection = {
+        title: "SANDWICH & FRENCH FRIES",
+        punchline: "Juicy chicken in a bun, fries to munch!",
+        price: "Sandwich \u00A5 680 / Fries \u00A5 650",
+        flavoursTitle: "Choose your favorite",
+        remark: "",
+        slides: sandwichSlides.concat(potatoesSlides),
+        items: sandwichPotatoesItems,
+        icons: Icons,
+    }
+
+    const sandwichPotatoesMenu = new MenuSection1(sandwichPotatoesSection);
+    const sandwichPotatoesMenuComponent = sandwichPotatoesMenu.createSection();
+    sandwichPotatoesMenuComponent.id = 'sandwich-potatoes-section';
+
     menuContainer.appendChild(wingsMenuComponent);
     menuContainer.appendChild(fingersMenuComponent);
+    menuContainer.appendChild(sandwichPotatoesMenuComponent);
     menuContent.appendChild(menuContainer);
 
     //Slideshow animation
     const slidesWings = menuContent.querySelectorAll('#wings-section .slide');
     const slidesFingers = menuContent.querySelectorAll('#fingers-section .slide');
+    const slidesSandwichPotatoes = menuContent.querySelectorAll('#sandwich-potatoes-section .slide');
     
     let currentWingsSlide = 0;
     let currentFingersSlide = 0;
+    let currentSandwichPotatoesSlide = 0;
     let wingsIntervalId = null;
     let fingersIntervalId = null;
+    let sandwichPotatoesIntervalId = null;
 
     showSlide(slidesWings,currentWingsSlide);
     wingsIntervalId = startCarousel(slidesWings,currentWingsSlide);
     
     showSlide(slidesFingers,currentFingersSlide);
     fingersIntervalId = startCarousel(slidesFingers,currentFingersSlide);
+
+    showSlide(slidesSandwichPotatoes,currentSandwichPotatoesSlide);
+    sandwichPotatoesIntervalId = startCarousel(slidesSandwichPotatoes,currentSandwichPotatoesSlide);
+
+    // showSlide(slidesPotatoes,currentPotatoesSlide);
+    // potatoesIntervalId = startCarousel(slidesPotatoes,currentPotatoesSlide);
 
     const wingsCarousel = menuContent.querySelector('#wings-section .slide-container');
     wingsCarousel.addEventListener('mouseenter',() => {
@@ -83,6 +108,20 @@ function Menu(){
     fingersCarousel.addEventListener('mouseleave',() => {
         fingersIntervalId = startCarousel(slidesFingers,currentFingersSlide)
     });
+    const sandwichPotatoesCarousel = menuContent.querySelector('#sandwich-potatoes-section .slide-container');
+    sandwichPotatoesCarousel.addEventListener('mouseenter',() => {
+        stopCarousel(sandwichPotatoesIntervalId);
+    });
+    sandwichPotatoesCarousel.addEventListener('mouseleave',() => {
+        sandwichPotatoesIntervalId = startCarousel(slidesSandwichPotatoes,currentSandwichPotatoesSlide)
+    });
+    // const potatoesCarousel = menuContent.querySelector('#sandwich-potatoes-section :nth-child(5) .slide-container');
+    // potatoesCarousel.addEventListener('mouseenter',() => {
+    //     stopCarousel(potatoesIntervalId);
+    // });
+    // potatoesCarousel.addEventListener('mouseleave',() => {
+    //     potatoesIntervalId = startCarousel(slidesPotatoes,currentPotatoesSlide)
+    // });
 
     return menuContent;
 

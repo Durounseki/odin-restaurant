@@ -36,6 +36,8 @@ import sweetChili from "./sweet-chili.png"
 import tandoori from "./tandoori.png"
 
 //Icons for extra information use font awesome
+
+const asterisk = {name: "asterisk", faClass: "fa-solid fa-asterisk", description: "Tax included"}
 const dry = {name:"dry", faClass: "fa-solid fa-cubes-stacked", description: "Dry rub"};
 const wet = {name:"wet" , faClass: "fa-solid fa-droplet", description: "Sauce"};
 const spicy = {name:"spicy", faClass: "fa-solid fa-pepper-hot", description: "Spicy hot"};
@@ -45,7 +47,7 @@ const topChoice = {
     one: {name:"one", faClass: "fa-solid fa-1 fa-stack-1x fa-inverse"}
 }
 
-const Icons = [dry, wet, spicy];
+const Icons = [asterisk, dry, wet, spicy];
 
 const wingsItems = [
     { name: "Jerk Garlic", src: jerkGarlic, icons: [dry]},
@@ -116,13 +118,47 @@ const fingersItems = [
 import classicPotatoes from "./potatoes2.jpeg";
 import classicPotatoes2 from "./potatoes3.jpeg";
 
-const potatoesSlides = [classicPotatoes,classicPotatoes2];
+const potatoesSlides = [
+    {
+        name: "Potatoes 1",
+        src: classicPotatoes
+    },
+    {
+        name: "Potatoes 2",
+        src: classicPotatoes2
+    }
+];
 
 //Sandwich images
 import classicSandwich from "./classic-sandwich2.jpeg";
 import spicySandwich from "./spicy-sandwich.jpeg";
 import classicSandwich2 from "./classic-sandwich4.jpeg";
 
-const sandwichSlides = [classicSandwich,spicySandwich,classicSandwich2];
+const sandwichSlides = [
+    {
+        name: "Classic Sandwich",
+        src: classicSandwich
+    },
+    // {
+    //     name: "Spicy Sandwich",
+    //     src: spicySandwich
+    // },
+    // {
+    //     name: "Classic Sandwich 2",
+    //     src: classicSandwich2
+    // }
+];
 
-export { wingSlides, wingsItems, fingersSlides, fingersItems, potatoesSlides, sandwichSlides, Icons };
+import sandwichIcon from "./sandwich-icon.png";
+import spicySandwichIcon from "./spicy-sandwich-icon.png";
+import potatoesIcon from "./potatoes-icon.png";
+
+
+const sandwichPotatoesItems = [
+    {name: "Original sauce", src: sandwichIcon, icons: []},
+    {name: "Spicy sauce", src: spicySandwichIcon, icons: [spicy,spicy]},
+    {name: "French Fries", src: potatoesIcon, icons: []},
+    {name: "Fries include ketchup", src: buffaloDip, icons: []}
+
+]
+export { wingSlides, wingsItems, fingersSlides, fingersItems, potatoesSlides, sandwichSlides, sandwichPotatoesItems, Icons };

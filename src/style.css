@@ -22,6 +22,10 @@ header{
     height: 100px;
 }
 
+.logo:hover{
+    cursor: pointer;
+}
+
 .nav-menu{
     display: flex;
     gap: 30px;
@@ -32,6 +36,26 @@ header{
     background-color: var(--main-color);
     color: var(--text-light);
     font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+}
+
+/* Navigation tab border animation*/
+.nav-tab::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-light);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-tab:hover::before{
+    transform: translateX(-50%) scaleX(1);
 }
 
 @media (max-width: 600px){
@@ -42,9 +66,10 @@ header{
         padding-bottom: 30px;
     }
 
-    .menu{
+    .nav-menu{
         flex-wrap: wrap;
-        justify-content: space-around;
+        gap: 0;
+        justify-content: space-between;
     }
 
     .logo-container{
@@ -124,6 +149,7 @@ header{
 .section-title{
     margin: 0 auto;
     border-bottom: solid 1px var(--text-dark);
+    text-align: center;
 }
 
 .concept-values{
@@ -147,6 +173,13 @@ header{
     padding: 15px 30px;
     border-radius: 25px;
     font-size: 20px;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.view-more:hover{
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 /* Sampler Menu */
@@ -175,6 +208,13 @@ header{
     padding: 15px;
     margin: 15px;
     z-index: 1;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+.sample-container:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .sample-picture-container{
@@ -245,6 +285,13 @@ header{
     i{
         font-size: 36px;
     }
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contact-button:hover{
+    background-color: var(--text-dark);
+    color: white;
+    cursor: pointer;
 }
 
 .business-hours{
@@ -310,28 +357,23 @@ header{
 /*   Menu page   */
 /**            **/
 
-.menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .menu-section{
     display: flex;
     padding: 60px;
-    margin: 120px auto;
+    margin: 120px 60px;
     flex-direction: column;
     background-color: white;
     justify-content: center;
 }
 
+
+
 .punchline{
     text-align: center;
 }
 
-.price{
-    text-align: center;
+.price i{
+    font-size: 16px;
 }
 
 .menu-section-content{
@@ -393,9 +435,6 @@ header{
     from {opacity: 0.4}
     to {opacity: 1}
 }
-/* .slide:first-child{
-    display: block;
-} */
 
 .menu-items{
     display: flex;
@@ -408,6 +447,7 @@ header{
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 20px;
+    align-items: center;
 }
 
 .menu-item{
@@ -434,11 +474,57 @@ header{
     font-size: smaller;
     display: flex;
     gap: 30px;
-    justify-content: flex-end;
+    justify-content: flex-start;
     grid-column: 1 / 3;
+    flex-wrap: wrap;
     p{
         display: flex;
         gap: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .menu-section-content{
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 0;
+        padding-top: 0;
+
+    }
+    .menu-section{
+        padding: 30px;
+        margin: 60px 30px;
+    }
+    
+    .slideshow-container{
+        grid-row: 2;
+    }
+    .slide-container{
+        margin: 30px;
+    }
+
+    .price, .flavours-header, .slideshow-container, .menu-items-container{
+        grid-column: 1 / 3;
+    }
+    
+    .price{
+        font-size: 20px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .slideshow-container:after{
+        top: 60px;
+    }
+    .menu-items-container{
+        display: flex;
+        justify-content: center;
+    }
+    .menu-items{
+        height: max-content;
+        margin: auto;
+    }
+    .flavours-header{
+        text-align: center;
     }
 }
 
@@ -508,6 +594,13 @@ header{
     border-radius: 25px;
     font-size: 20px;
     min-width: 200px;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.submit-button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .form-container::after{

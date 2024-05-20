@@ -2,8 +2,8 @@ import { Banner } from '../components/banner.js';
 import { Concept } from '../components/concept.js';
 import { Sampler } from '../components/sampler.js';
 import { Contact } from '../components/get-in-touch.js';
-import { Location } from '../components/location.js';
-import logoImage from '../images/logo2.jpeg';
+// import { Location } from '../components/location.js';
+// import logoImage from '../images/logo2.jpeg';
 import wingsPicture from '../images/classic-wings.jpeg';
 import fingersPicture from '../images/classic-fingers.jpeg';
 import sandwichPicture from '../images/classic-sandwich2.jpeg';
@@ -80,13 +80,6 @@ function Home(){
     const contactComponent = contact.createContact();
 
     homeContent.appendChild(contactComponent);
-
-    //Location Section
-    const location = new Location(restaurant,logoImage);  //Instantiate Location object
-    const locationComponent = location.createLocation();
-    locationComponent.classList.add('location');
-
-    homeContent.appendChild(locationComponent)
 
     return homeContent;
 }

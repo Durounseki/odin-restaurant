@@ -1,9 +1,9 @@
 import { Logo } from './logo.js';
 
-function Header(logoSrc, tabNames) {
+function Header(logoSrc, tabs) {
     
     this.logoSrc = logoSrc;
-    this.tabNames = tabNames;
+    this.tabs = tabs;
 
     this.createHeader = function() {
         
@@ -19,8 +19,8 @@ function Header(logoSrc, tabNames) {
         const menu = document.createElement('nav');
         menu.classList.add('nav-menu');
         
-        for(let tabName of this.tabNames){
-            menu.appendChild(this.createMenuTab(tabName));
+        for(let tab of this.tabs){
+            menu.appendChild(this.createMenuTab(tab));
         }
 
         headerElement.appendChild(menu);
@@ -30,14 +30,15 @@ function Header(logoSrc, tabNames) {
 
     }
 
-    this.createMenuTab = function(tabName){
+    this.createMenuTab = function(tab){
         
-        const tab = document.createElement('button');
+        const navTab = document.createElement('button');
         
-        tab.classList.add('nav-tab');
-        tab.textContent=tabName;
+        navTab.classList.add('nav-tab');
+        navTab.textContent=tab.name;
+        navTab.dataset.page = tab.page;
         
-        return tab;
+        return navTab;
         
     }
 }
