@@ -2,6 +2,7 @@ import { Banner } from '../components/banner.js';
 import { Concept } from '../components/concept.js';
 import { Sampler } from '../components/sampler.js';
 import { Contact } from '../components/get-in-touch.js';
+import { Menu } from './menu.js';
 // import { Location } from '../components/location.js';
 // import logoImage from '../images/logo2.jpeg';
 import wingsPicture from '../images/classic-wings.jpeg';
@@ -53,19 +54,23 @@ function Home(){
     const menuSamples = [
         {
             name: "Wings",
-            picture: wingsPicture
+            picture: wingsPicture,
+            focusElement: "wings-section"
         },
         {
             name: "Fingers",
-            picture: fingersPicture
+            picture: fingersPicture,
+            focusElement: "fingers-section"
         },
         {
             name: "Sandwich",
-            picture: sandwichPicture
+            picture: sandwichPicture,
+            focusElement: "sandwich-potatoes-section"
         },
         {
             name: "Potatoes",
-            picture: potatoesPicture
+            picture: potatoesPicture,
+            focusElement: "sandwich-potatoes-section"
         }
     ];
 
@@ -73,6 +78,22 @@ function Home(){
     const samplerComponent = sampler.createSampler();
 
     homeContent.appendChild(samplerComponent);
+
+    const Samples = homeContent.querySelectorAll('.sample-picture-container');
+    Samples.forEach(sample => {
+    sample.addEventListener('click',(event) => {
+        const targetElementId = event.target.closest('div').id;
+        const content = document.querySelector('.content');
+        content.innerHTML = "";
+        content.appendChild(Menu());
+        const targetElement = document.getElementById(targetElementId);
+        targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+
+});
 
     //Contact Section
 

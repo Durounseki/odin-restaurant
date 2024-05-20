@@ -13,6 +13,7 @@ function Sample(item){
 
         const pictureContainer = document.createElement('div');
         pictureContainer.classList.add('sample-picture-container');
+        pictureContainer.id = item.focusElement;
         const picture = new Image();
         picture.src = this.item.picture;
         picture.classList.add('sample-picture');
