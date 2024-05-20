@@ -1,7 +1,8 @@
 import { Banner } from '../components/banner.js';
 import { Concept } from '../components/concept.js';
 import { Sampler } from '../components/sampler.js';
-import { Contact } from '../components/get-in-touch.js';
+import { ContactSection } from '../components/get-in-touch.js';
+import { Contact } from './contact.js';
 import { Menu } from './menu.js';
 // import { Location } from '../components/location.js';
 // import logoImage from '../images/logo2.jpeg';
@@ -81,26 +82,36 @@ function Home(){
 
     const Samples = homeContent.querySelectorAll('.sample-picture-container');
     Samples.forEach(sample => {
-    sample.addEventListener('click',(event) => {
-        const targetElementId = event.target.closest('div').id;
-        const content = document.querySelector('.content');
-        content.innerHTML = "";
-        content.appendChild(Menu());
-        const targetElement = document.getElementById(targetElementId);
-        targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+        sample.addEventListener('click',(event) => {
+            const targetElementId = event.target.closest('div').id;
+            const content = document.querySelector('.content');
+            content.innerHTML = "";
+            content.appendChild(Menu());
+            const targetElement = document.getElementById(targetElementId);
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
     });
 
-});
-
     //Contact Section
 
-    const contact = new Contact(restaurant);
-    const contactComponent = contact.createContact();
+    const contact = new ContactSection(restaurant);
+    const contactComponent = contact.createContactSection();
 
     homeContent.appendChild(contactComponent);
+
+    const contactButton = homeContent.querySelector('.contact-button');
+    contactButton.addEventListener('click',() => {
+        const content = document.querySelector('.content');
+        content.innerHTML = "";
+        content.appendChild(Contact());
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
     return homeContent;
 }

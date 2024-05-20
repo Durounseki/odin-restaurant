@@ -1,4 +1,4 @@
-function Contact(
+function ContactSection(
     company, 
     titleText = "GET IN TOUCH", 
     mailIconFaClass = "fa-regular fa-envelope", 
@@ -12,7 +12,7 @@ function Contact(
     this.contactText = contactText;
     this.invitationText = invitationText;
 
-    this.createContact = function(){
+    this.createContactSection = function(){
 
         const contactContainer = document.createElement('div');
         contactContainer.classList.add('section-container');
@@ -73,4 +73,4 @@ function Contact(
 
 }
 
-export { Contact };
+export { ContactSection };
